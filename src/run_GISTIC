@@ -1,0 +1,60 @@
+#!/bin/sh
+
+GISTIC_ROOT=/mnt/storageBig8/work/klavikka/GISTIC
+
+# Parse input arguments
+while getopts ":i:o:t:" opt; do
+  case $opt in
+    i) input_file="$OPTARG"
+    ;;
+    o) output_dir="$OPTARG"
+    ;;
+    t) thresh_hold="$OPTARG"
+    ;;
+    \?) echo "Invalid option -$OPTARG" >&2
+    ;;
+  esac
+done
+
+## assign input file: logR CNV segmentation with 6 columns: sample chr start   end nprob   logR
+input=$input_file
+## output directory
+output=$output_dir
+
+echo --- creating output directory ---
+basedir=`pwd`/$output 
+mkdir -p $basedir 
+
+#thresh = $thresh_hold
+echo --- running GISTIC ---
+
+## input file definitions
+#segfile=$input 
+#echo $segment_file
+
+refgenefile=/mnt/storageBig8/work/klavikka/GISTIC/refgenefiles/hg38.UCSC.add_miR.160920.refgene.mat
+
+## call script that sets MCR environment and calls GISTIC executable 
+
+cd $GISTIC_ROOT
+
+$GISTIC_ROOT/gistic2 \
+ -b $basedir \
+ -seg $input \
+ -refgene $refgenefile \
+ -genegistic 1 \
+ -broad 1 \
+ -conf 0.99 \
+ -rx 0 \
+ -ta $thresh_hold \
+ -td $thresh_hold \
+ -brlen 0.96 \
+ -qvt 0.25 \
+ -cap 3 \
+ -savegene 1 
+# -gcm extreme 
+# -cnv $cnvfile \
+# -alf $alf \
+# -mk $markersfile \
+# -smallmem 1  -broad 1 -brlen 0.5 -conf 0.90 -armpeel 1 -savegene 1 -gcm extreme
+
