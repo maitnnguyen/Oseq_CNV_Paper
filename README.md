@@ -6,3 +6,7 @@
 
 ### References
 - Pipeline was built based on PureCN: https://bioconductor.org/packages/3.16/bioc/html/PureCN.html
+
+### Author:
+- Mai TN. Nguyen - University of Helsinki
+- Email: mai.tn.nguyen@helsinki.fi
