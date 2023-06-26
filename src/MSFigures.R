@@ -1,6 +1,5 @@
 #!/usr/bin/env Rscript
 
-
 suppressMessages({
   library(dplyr)
   library(ggplot2)
@@ -9,7 +8,7 @@ suppressMessages({
 
 # Figure 2AB
 {
-  fig2a_df <- readxl::read_excel('data/SupplementaryTables.xlsx', sheet = 'SupplementTable3') |>
+  fig2a_df <- readxl::read_excel('data/SupplementaryTables.xlsx', sheet = 'Table S3') |>
     as.data.frame() |>
     filter(type == 'plasma')
   
@@ -70,7 +69,7 @@ suppressMessages({
 
 # Figure 2CD
 {
-  fig2c_df <- readxl::read_excel('data/SupplementaryTables.xlsx', sheet = 'SupplementTable4') |>
+  fig2c_df <- readxl::read_excel('data/SupplementaryTables.xlsx', sheet = 'Table S4') |>
     as.data.frame()
   
   fig2c <- fig2c_df %>% 
@@ -119,7 +118,7 @@ suppressMessages({
 # Figure 3
 #-- based on gistic analysis
 {
-  sampleData <- readxl::read_excel('data/SupplementaryTables.xlsx', sheet = 'SupplementTable3') |>
+  sampleData <- readxl::read_excel('data/SupplementaryTables.xlsx', sheet = 'Table S3') |>
     as.data.frame() |>
     mutate(sampleID =  paste(patient, sampleID, sep = '_'))
   
