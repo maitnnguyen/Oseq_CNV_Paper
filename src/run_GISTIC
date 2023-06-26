@@ -1,6 +1,6 @@
 #!/bin/sh
 
-GISTIC_ROOT=/mnt/storageBig8/work/klavikka/GISTIC
+GISTIC_ROOT=[path where gistic installed]/GISTIC
 
 # Parse input arguments
 while getopts ":i:o:t:" opt; do
