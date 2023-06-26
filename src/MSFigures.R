@@ -59,9 +59,10 @@ suppressMessages({
     stat_compare_means(label.y = 181, size=5)
   
   Fig2 <- ggarrange(fig2a, fig2b, nrow=1, ncol=2)
-  svg('results/figures/Fig2.svg', width = 15, height = 7)
-  Fig2
-  dev.off()
+  
+  #svg('results/figures/Fig2.svg', width = 15, height = 7)
+  #Fig2
+  #dev.off()
 }
 
 # Figure 2CD
@@ -105,11 +106,11 @@ suppressMessages({
           legend.title = element_text(size=15),
           legend.position = c(.75, .2))
   
-  
-  svg('results/figures/Fig2.svg', width = 15, height = 15)
-  ggarrange(fig2a, fig2b, fig2c, fig2d, nrow = 2, ncol = 2) 
-            #labels = 'AUTO', font.label = list(size=30))
-  dev.off()
+  Fig2 <- ggarrange(fig2a, fig2b, fig2c, fig2d, nrow = 2, ncol = 2) 
+            labels = 'AUTO', font.label = list(size=30))
+  #svg('results/figures/Fig2.svg', width = 15, height = 15)
+  #Fig2
+  #dev.off()
 }
 
 # Figure 3
@@ -161,9 +162,9 @@ suppressMessages({
           axis.text.y = element_text(size = 20),
           axis.text.x = element_text(size = 20),
           legend.text=element_text(size=15))
-  svg('results/figures/fig3a.svg', height = 12, width = 8)
-  fig3a
-  dev.off()
+  #svg('results/figures/fig3a.svg', height = 12, width = 8)
+  #fig3a
+  #dev.off()
   
 }  
   
@@ -249,9 +250,9 @@ suppressMessages({
           axis.text.y = element_text(size = 15, color='black'),
           axis.text.x = element_text(size = 15, color='black'))
   
-  svg('results/figures/main/fig3b.svg', height = 14, width = 24)
-  fig3b
-  dev.off()
+  #svg('results/figures/main/fig3b.svg', height = 14, width = 24)
+  #fig3b
+  #dev.off()
   
 
 }
